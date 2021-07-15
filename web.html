@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+var b=""
+function myFunction(a
+  )
+
+  { 
+    if(a=="clear"){
+      b=""
+    }
+    
+    if(a!="="){
+    if (a=="+" || a=="-" || a=="x" ||a=="/" ||a=="%"){
+      b=b+" "+a+" "
+    }
+    else if(a=="clear"){
+      b.replace(b[b.length-1],"")
+    }
+    else{
+      b+=a
+    }
+      document.getElementById("text").innerHTML =b;
+  }
+  var c=b.split(" ")
+  var m=0
+  if (a=="="){
+    
+    while(m <=c.length ){
+      if (c.includes("%")){
+        if (c[m]=="%"){
+          var y=(Number(c[m-1])/ Number(c[m+1]))/100
+          c[m-1]=String(y)
+          c.splice(m,1)
+          c.splice(m,1)
+          m=0
+        }
+        }
+      if (c.includes("/") && !(c.includes("%"))){
+      if (c[m]=="/"){
+        var y=Number(c[m-1]) / Number(c[m+1])
+        c[m-1]=String(y)
+        c.splice(m,1)
+        c.splice(m,1)
+        m=0
+      }
+      }
+      else if (c.includes("x") && !(c.includes("/") || c.includes("%"))){
+      if (c[m]=="x"){
+        var y=Number(c[m-1]) * Number(c[m+1])
+        c[m-1]=String(y)
+        c.splice(m,1)
+        c.splice(m,1)
+        m=0
+      }
+    }
+    else if (c.includes("+") && !(c.includes("x") || c.includes("/") || c.includes("%"))){
+       if (c[m]=="+"){
+        var y=Number(c[m-1]) + Number(c[m+1])
+        c[m-1]=String(y)
+        c.splice(m,1)
+        c.splice(m,1)
+        m=0
+      }
+    }
+    else if (c.includes("-") && !(c.includes("+") || c.includes("x") || c.includes("/") || c.includes("%"))){
+      if (c[m]=="-"){
+        var y=Number(c[m-1]) - Number(c[m+1])
+        c[m-1]=String(y)
+        c.splice(m,1)
+        c.splice(m,1)
+        m=0
+      }
+    }
+      m+=1
+  }
+  document.getElementById("text").innerHTML =c;
+  }
+    }
+</script>
+<style>
+body{
+    margin: 0;
+}
+#list{
+    float: left;
+    margin: 20px 20px 20px 20px;
+}
+#header{
+    background-color: rgba(4, 4, 58, 0.938);
+    height: 80px;
+}
+#list li{
+    display: inline-block;
+    margin: 0px 10px;
+    color: #000;
+    font-size: 20px;
+}
+#list li a{
+    text-decoration: none;
+    font-size: 18px;
+    color: rgba(14, 13, 13, 0.925);
+border-style: solid;
+padding: 5px;
+border-radius: 10px;
+background-color: bisque;
+}
+#box-con{
+    float: right;
+    margin: 25px;
+
+}
+#box-con #box{
+    height: 25px;
+    border-radius: 25px;
+}
+#btn{
+    height: 25px;
+    border-radius: 20%;
+
+}
+#heading{
+    margin: 0% 15%;
+    font-size: 200%;
+    font-style: italic;
+    float: left;
+    color: rgba(228, 177, 50, 0.925);
+}
+#list li :hover{
+    color: rgb(177, 105, 18);
+    padding: 3px;
+    background-color: rgb(211, 217, 228);
+}
+#main{
+    background-image: url("cal.jpg");
+    height: 100%;
+    width: 100%;
+    position:absolute;
+}
+
+
+#cal-con{
+    background-image: radial-gradient(rgba(126, 22, 211, 0.939),rgba(221, 97, 215, 0.926),rgba(13, 36, 13, 0.918),rgba(177, 20, 20, 0.651)) ;
+border-radius: 15px 20px 25px 30px;
+    height: 400px;
+    width: 40%;
+    margin: 10% 25%;
+    position: relative;
+}
+#display{
+    border-style: outset;
+    border-color: rgba(201, 165, 165, 0.823);
+    height: 20%;
+    width: 96%;
+    margin: 0px 0px 0 7px ;
+    background-color: blanchedalmond;
+    border-radius: 25px 25px 10px 10px;
+    position: absolute;
+    overflow: hidden;
+}
+.ke{
+    float: left;
+    width: 60%;
+}
+#sign{
+    float:right;
+    width: 40%;
+}
+.ke .key{
+width: 25%;
+height: 40px;
+margin: 5px;
+border-radius: 10px;
+}
+#sign .key2{
+    width: 45%;
+height:50px;
+margin: 5px 2px;
+border-radius: 5px;
+}
+#keys{
+    margin:20% 10%;
+    position: absolute;
+}
+#en{
+    margin: 5px;
+    width: 140px;
+    height: 60px;
+    font-size: 110%;
+    border-radius: 15px;
+}
+</style>
+</head> 
+<body>
+    <div id="header">
+        <div>
+            <ul id="list">
+                <li id="home">
+                    <a href="/home/navgurukul/page.html">
+                    Home
+                    </a>
+                </li>
+                <li id="about">
+                    <a href="">
+                    about
+                    </a>
+                </li>
+                <li id="contact">
+                    <a href="">
+                    contact_us
+                    </a>
+                </li>
+                <li id="view">
+                    <a href="">
+                    view
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="heading">calculator</div>
+        <div id="box-con">
+            
+            <input id="box" type="search"> <button id="btn">search</button>
+        </div>
+    </div>
+    <div id="main">
+        <div id="cal-con">
+            <div id="display">
+                <br>
+               <div id="text"></div>
+            </div>
+            <div id="keys">
+                <div class="ke">
+        <button class="key" onclick="myFunction('%')">%</button>
+        <button class="key" onclick="myFunction('1')">1</button>
+        <button class="key" onclick="myFunction('2')">2</button>
+        <button class="key" onclick="myFunction('3')">3</button>
+        <button class="key" onclick="myFunction('4')">4</button>
+        <button class="key" onclick="myFunction('5')">5</button>
+        <button class="key" onclick="myFunction('6')">6</button>
+        <button class="key" onclick="myFunction('7')">7</button>
+        <button class="key" onclick="myFunction('8')">8</button>
+        <button class="key" onclick="myFunction('9')">9</button>
+        <button class="key" onclick="myFunction('0')">0</button>
+        <button class="key" onclick="myFunction('.')">.</button>
+        </div>
+        <div id="sign">
+        <button class="key2" onclick="myFunction('+')">+</button>
+        <button class="key2" onclick="myFunction('-')">-</button>
+        <button class="key2" onclick="myFunction('x')">x</button>
+        <button class="key2" onclick="myFunction('/')">/</button>
+        <button class="key2" onclick="myFunction('clear')">clear</button>
+        <button class="key2" onclick="myFunction('=')">=</button>
+        <button id="en" onclick="myFunction(b)">Enter</button>
+
+</div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>   
+
